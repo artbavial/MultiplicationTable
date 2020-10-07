@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace MultiplicationTable.LogicProgram
 {
-    
+
     /// <summary>
     /// Класс где объекты обладают полным набором методов для создания тернажера таблицы умножения
     /// </summary>
@@ -14,22 +15,29 @@ namespace MultiplicationTable.LogicProgram
     {
         Random randomDigits = new Random();
 
-        public int x { get; set; }
-        public int y { get; set; }
+        public string timerstring { get; set; }
+        public int x_num { get; set; }
+        public int y_num { get; set; }
         public int result { get; set; }
+        
 
         public TreanerMultiplicationTable() { }
 
 
         /// <summary>
-        /// Метод генерирующий случайное число из диапазона который нужно указать в аргументах
+        /// Метод генерирующий случайные числа для двух Label контролов из диапазона который нужно указать в первых двух аргументах. Метод также задает сгенерированные значение полям x_num и y_num
         /// </summary>
         /// <returns></returns>
-        public int GeneratingRandomNumbers(int x, int y)
+        public void GeneratingRandomNumbers(int x, int y, Label lx, Label ly)
         {
-            int res = randomDigits.Next(x, y);
-            
-            return res;
+            x = randomDigits.Next(x, y);
+            x_num = x;
+            lx.Text = x.ToString();
+
+            y = randomDigits.Next(x, y);
+            y_num = y;
+            ly.Text = y.ToString();
+
         }
 
 

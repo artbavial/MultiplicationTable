@@ -31,7 +31,7 @@
             this.components = new System.ComponentModel.Container();
             this.txtbox_answer = new System.Windows.Forms.TextBox();
             this.label_X = new System.Windows.Forms.Label();
-            this.labelY = new System.Windows.Forms.Label();
+            this.label_Y = new System.Windows.Forms.Label();
             this._labelx = new System.Windows.Forms.Label();
             this._label_equally = new System.Windows.Forms.Label();
             this.btnOk = new System.Windows.Forms.Button();
@@ -40,15 +40,15 @@
             this.labelShowInfo = new System.Windows.Forms.Label();
             this.linkLabel_aboutApp = new System.Windows.Forms.LinkLabel();
             this.panel2 = new System.Windows.Forms.Panel();
+            this._label3 = new System.Windows.Forms.Label();
+            this._label2 = new System.Windows.Forms.Label();
+            this._label1 = new System.Windows.Forms.Label();
+            this.label_errors = new System.Windows.Forms.Label();
+            this.label_hints = new System.Windows.Forms.Label();
+            this.label_points = new System.Windows.Forms.Label();
             this.timerSecondomer = new System.Windows.Forms.Timer(this.components);
             this.label_timer = new System.Windows.Forms.Label();
             this.button_refresh = new System.Windows.Forms.Button();
-            this.label_points = new System.Windows.Forms.Label();
-            this.label_hints = new System.Windows.Forms.Label();
-            this.label_errors = new System.Windows.Forms.Label();
-            this._label1 = new System.Windows.Forms.Label();
-            this._label2 = new System.Windows.Forms.Label();
-            this._label3 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
@@ -56,10 +56,10 @@
             // txtbox_answer
             // 
             this.txtbox_answer.Font = new System.Drawing.Font("Microsoft Tai Le", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtbox_answer.Location = new System.Drawing.Point(246, 86);
+            this.txtbox_answer.Location = new System.Drawing.Point(274, 86);
             this.txtbox_answer.MaxLength = 2;
             this.txtbox_answer.Name = "txtbox_answer";
-            this.txtbox_answer.Size = new System.Drawing.Size(100, 38);
+            this.txtbox_answer.Size = new System.Drawing.Size(72, 38);
             this.txtbox_answer.TabIndex = 0;
             // 
             // label_X
@@ -72,15 +72,15 @@
             this.label_X.TabIndex = 1;
             this.label_X.Text = "X";
             // 
-            // labelY
+            // label_Y
             // 
-            this.labelY.AutoSize = true;
-            this.labelY.Font = new System.Drawing.Font("Microsoft Tai Le", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelY.Location = new System.Drawing.Point(162, 90);
-            this.labelY.Name = "labelY";
-            this.labelY.Size = new System.Drawing.Size(31, 34);
-            this.labelY.TabIndex = 2;
-            this.labelY.Text = "Y";
+            this.label_Y.AutoSize = true;
+            this.label_Y.Font = new System.Drawing.Font("Microsoft Tai Le", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_Y.Location = new System.Drawing.Point(162, 90);
+            this.label_Y.Name = "label_Y";
+            this.label_Y.Size = new System.Drawing.Size(31, 34);
+            this.label_Y.TabIndex = 2;
+            this.label_Y.Text = "Y";
             // 
             // _labelx
             // 
@@ -112,6 +112,7 @@
             this.btnOk.TabIndex = 5;
             this.btnOk.Text = "OK";
             this.btnOk.UseVisualStyleBackColor = true;
+            this.btnOk.Click += new System.EventHandler(this.btnOk_Click);
             // 
             // button1
             // 
@@ -170,10 +171,77 @@
             this.panel2.Size = new System.Drawing.Size(362, 61);
             this.panel2.TabIndex = 9;
             // 
+            // _label3
+            // 
+            this._label3.AutoSize = true;
+            this._label3.Font = new System.Drawing.Font("Microsoft Tai Le", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this._label3.Location = new System.Drawing.Point(268, 40);
+            this._label3.Name = "_label3";
+            this._label3.Size = new System.Drawing.Size(56, 16);
+            this._label3.TabIndex = 13;
+            this._label3.Text = "ошибок";
+            // 
+            // _label2
+            // 
+            this._label2.AutoSize = true;
+            this._label2.Font = new System.Drawing.Font("Microsoft Tai Le", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this._label2.Location = new System.Drawing.Point(140, 40);
+            this._label2.Name = "_label2";
+            this._label2.Size = new System.Drawing.Size(77, 16);
+            this._label2.TabIndex = 12;
+            this._label2.Text = "подсказок";
+            // 
+            // _label1
+            // 
+            this._label1.AutoSize = true;
+            this._label1.Font = new System.Drawing.Font("Microsoft Tai Le", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this._label1.Location = new System.Drawing.Point(36, 40);
+            this._label1.Name = "_label1";
+            this._label1.Size = new System.Drawing.Size(47, 16);
+            this._label1.TabIndex = 3;
+            this._label1.Text = "очков";
+            // 
+            // label_errors
+            // 
+            this.label_errors.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.label_errors.Font = new System.Drawing.Font("Microsoft Tai Le", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_errors.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.label_errors.Location = new System.Drawing.Point(258, 9);
+            this.label_errors.Name = "label_errors";
+            this.label_errors.Size = new System.Drawing.Size(75, 28);
+            this.label_errors.TabIndex = 2;
+            this.label_errors.Text = "0";
+            this.label_errors.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label_hints
+            // 
+            this.label_hints.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
+            this.label_hints.Font = new System.Drawing.Font("Microsoft Tai Le", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_hints.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.label_hints.Location = new System.Drawing.Point(140, 9);
+            this.label_hints.Name = "label_hints";
+            this.label_hints.Size = new System.Drawing.Size(75, 28);
+            this.label_hints.TabIndex = 1;
+            this.label_hints.Text = "0";
+            this.label_hints.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label_points
+            // 
+            this.label_points.BackColor = System.Drawing.Color.Green;
+            this.label_points.Font = new System.Drawing.Font("Microsoft Tai Le", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_points.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.label_points.Location = new System.Drawing.Point(19, 9);
+            this.label_points.Name = "label_points";
+            this.label_points.Size = new System.Drawing.Size(75, 28);
+            this.label_points.TabIndex = 0;
+            this.label_points.Text = "0";
+            this.label_points.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // label_timer
             // 
             this.label_timer.AutoSize = true;
             this.label_timer.Font = new System.Drawing.Font("Microsoft Tai Le", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_timer.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
             this.label_timer.Location = new System.Drawing.Point(303, 255);
             this.label_timer.Name = "label_timer";
             this.label_timer.Size = new System.Drawing.Size(70, 21);
@@ -191,72 +259,6 @@
             this.button_refresh.Text = "↻";
             this.button_refresh.UseVisualStyleBackColor = true;
             // 
-            // label_points
-            // 
-            this.label_points.BackColor = System.Drawing.Color.Green;
-            this.label_points.Font = new System.Drawing.Font("Microsoft Tai Le", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_points.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.label_points.Location = new System.Drawing.Point(19, 9);
-            this.label_points.Name = "label_points";
-            this.label_points.Size = new System.Drawing.Size(75, 28);
-            this.label_points.TabIndex = 0;
-            this.label_points.Text = "0";
-            this.label_points.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label_hints
-            // 
-            this.label_hints.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
-            this.label_hints.Font = new System.Drawing.Font("Microsoft Tai Le", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_hints.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.label_hints.Location = new System.Drawing.Point(140, 9);
-            this.label_hints.Name = "label_hints";
-            this.label_hints.Size = new System.Drawing.Size(75, 28);
-            this.label_hints.TabIndex = 1;
-            this.label_hints.Text = "0";
-            this.label_hints.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label_errors
-            // 
-            this.label_errors.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.label_errors.Font = new System.Drawing.Font("Microsoft Tai Le", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_errors.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.label_errors.Location = new System.Drawing.Point(258, 9);
-            this.label_errors.Name = "label_errors";
-            this.label_errors.Size = new System.Drawing.Size(75, 28);
-            this.label_errors.TabIndex = 2;
-            this.label_errors.Text = "0";
-            this.label_errors.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // _label1
-            // 
-            this._label1.AutoSize = true;
-            this._label1.Font = new System.Drawing.Font("Microsoft Tai Le", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this._label1.Location = new System.Drawing.Point(36, 40);
-            this._label1.Name = "_label1";
-            this._label1.Size = new System.Drawing.Size(47, 16);
-            this._label1.TabIndex = 3;
-            this._label1.Text = "очков";
-            // 
-            // _label2
-            // 
-            this._label2.AutoSize = true;
-            this._label2.Font = new System.Drawing.Font("Microsoft Tai Le", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this._label2.Location = new System.Drawing.Point(140, 40);
-            this._label2.Name = "_label2";
-            this._label2.Size = new System.Drawing.Size(77, 16);
-            this._label2.TabIndex = 12;
-            this._label2.Text = "подсказок";
-            // 
-            // _label3
-            // 
-            this._label3.AutoSize = true;
-            this._label3.Font = new System.Drawing.Font("Microsoft Tai Le", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this._label3.Location = new System.Drawing.Point(268, 40);
-            this._label3.Name = "_label3";
-            this._label3.Size = new System.Drawing.Size(56, 16);
-            this._label3.TabIndex = 13;
-            this._label3.Text = "ошибок";
-            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -271,7 +273,7 @@
             this.Controls.Add(this.btnOk);
             this.Controls.Add(this._label_equally);
             this.Controls.Add(this._labelx);
-            this.Controls.Add(this.labelY);
+            this.Controls.Add(this.label_Y);
             this.Controls.Add(this.label_X);
             this.Controls.Add(this.txtbox_answer);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
@@ -292,7 +294,7 @@
 
         private System.Windows.Forms.TextBox txtbox_answer;
         private System.Windows.Forms.Label label_X;
-        private System.Windows.Forms.Label labelY;
+        private System.Windows.Forms.Label label_Y;
         private System.Windows.Forms.Label _labelx;
         private System.Windows.Forms.Label _label_equally;
         private System.Windows.Forms.Button btnOk;
